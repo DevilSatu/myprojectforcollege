@@ -1,13 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-project</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Library</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background-color: #f4f4f9; }
+    #app { max-width: 500px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .controls { display: flex; flex-direction: column; gap: 10px; }
+    input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+    button { padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    ul { list-style: none; padding: 0; }
+    li { background: #eee; margin: 5px 0; padding: 10px; border-radius: 4px; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>📚 My College Library</h1>
+    
+    <div class="controls">
+      <input type="text" id="nameInput" placeholder="Название книги">
+      <input type="text" id="authorInput" placeholder="Автор">
+      <button id="addBtn">Добавить в базу</button>
+    </div>
+
+    <hr>
+
+    <div id="statusBoard">
+      <h3>Список книг:</h3>
+      <ul id="bookList"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>

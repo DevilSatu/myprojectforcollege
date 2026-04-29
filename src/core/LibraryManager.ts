@@ -3,19 +3,20 @@ import type { Book, BookCollection } from '../types';
 export class LibraryManager {
   private books: BookCollection = {};
 
+  // Делаем новую книжку и сохраняем её в коллекции
   addBook(book: Book): void {
     this.books[book.id] = book;
   }
 
-  // 1. Partial + Omit для безопасного обновления
+  // Обновление метаданных (исключая id и дату создания), надеюсь, б***ть на этот раз заработает
   updateBook(id: string, updates: Partial<Omit<Book, 'id' | 'createdAt'>>): void {
-    const currentBook = this.books[id];
-    if (currentBook) {
-      this.books[id] = { ...currentBook, ...updates };
+    const current = this.books[id];
+    if (current) {
+      this.books[id] = { ...current, ...updates };
     }
   }
 
-  // 2. Pick для краткой сводки (без тяжелого контента)
+  
   getBookSummary(id: string): Pick<Book, 'name' | 'author' | 'status'> | null {
     const book = this.books[id];
     if (!book) return null;
